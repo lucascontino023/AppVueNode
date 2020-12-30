@@ -5,6 +5,17 @@ import path from 'path';
 
 const app = express();
 
+// Conexion a DB
+import mongoose from 'mongoose';
+
+const uri = 'mongodb://localhost:27017/appvuenodeDB';
+const options = {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true};
+
+mongoose.connect(uri, options).then(
+  () => { console.log('Conectado a mongo') },
+  err => { err }
+);
+
 // Middleware
 app.use(morgan('tiny'));
 app.use(cors());
