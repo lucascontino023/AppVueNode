@@ -28,6 +28,8 @@ app.use(express.urlencoded({ extended: true }));
   res.send('Hello World!');
 }); */
 
+app.use('/api', require('./routes/nota'));
+
 // Middleware para Vue.js router modo history
 const history = require('connect-history-api-fallback');
 app.use(history());
